@@ -1,0 +1,11 @@
+<div class="tabs-container">
+  @for (tab of tabs; track tab.id) {
+    <button [id]="tab.id" class="tab" [disabled]="!tab.enabled" (click)="onTabClick(tab.url)">{{ tab.title }}</button>
+  }
+</div>
+<router-outlet/>
+@if (imageUrl()) {
+  <div>
+    <img [src]="imageUrl()">
+  </div>
+}

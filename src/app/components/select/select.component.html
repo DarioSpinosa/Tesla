@@ -1,0 +1,11 @@
+<div>
+  <label [for]="options.id">{{options.label}}</label>
+  <select [id]="options.id" [(ngModel)]="value" (change)="onChange()">
+    @if (options.placeholder) {
+      <option [ngValue]="null">Choose...</option>
+    }
+    @for(model of data; track model[options.track]) {
+      <option [ngValue]="model[prop]">{{ model[options.display] }}</option>
+    }
+  </select>
+</div>

@@ -1,0 +1,25 @@
+<h1 class="title">Step 2: Select your config and options</h1>
+
+<div class="row">
+  <app-select [value]="selectedConfigId" [data]="options().configs" [prop]="'id'" [options]="{ display: 'description', id: 'colorSelect', track: 'id', label: 'Config:', placeholder: true}" (valueChange)="onConfigChange($event)"/>
+</div>
+
+@if (config()) {
+  <div class="row">      
+    <label>
+      Range: {{config().range}} miles - Max speed {{config().speed}} - Cost {{config().price| currency}}
+    </label>
+  </div>
+}
+  
+@if (options().towHitch) {
+  <div class="row">
+    <app-checkbox [value]="towChecked" [options]="{ id: 'includeTow', label: 'Tow hitch?'}" (valueChange)="onTowChange($event)"/>
+  </div>
+}
+
+@if (options().yoke) {
+  <div class="row">
+    <app-checkbox [value]="yokeChecked" [options]="{ id: 'includeYoke', label: 'Yoke steering wheel?'}" (valueChange)="onYokeChange($event)"/>
+  </div>
+}

@@ -1,0 +1,31 @@
+@import '../../style/common.scss';
+
+@mixin fade-border($direction) {
+  border-color: white;
+  border-image: linear-gradient(to $direction, rgb(255, 255, 255), rgba(0, 0, 0, 0)) 1;
+  border-style: solid;
+  border-width: 1px 0px;
+}
+
+.row {
+  margin: 0px 0px;
+  padding-left: 8px;
+
+  >.column {
+    text-align: left;
+    width: 50%;
+  }
+}
+
+.total-price {
+  padding: 7px 0px;
+  margin: 7px 0px;
+
+  .fade-left {
+    @include fade-border(left)
+  }
+
+  .fade-right {
+    @include fade-border(right)
+  }
+}

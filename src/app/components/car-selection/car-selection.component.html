@@ -1,0 +1,8 @@
+<h1 class="title">Step 1: Choose your Model and color</h1>
+
+<div class="row">
+  <app-select [value]="selectedModelCode" [data]="models()" [prop]="'code'" [options]="{ display: 'description', id: 'modelSelect', track: 'code', label: 'Model: ', placeholder: true }" (valueChange)="onCarModelChange($event)"/>
+  @if (colors().length) {
+    <app-select [value]="selectedColorCode" [data]="colors()" [prop]="'code'" [options]="{ display: 'description', id: 'colorSelect', track: 'code', label: 'Color: '}" (valueChange)="onCarColorChange($event)"/>
+  }
+</div>

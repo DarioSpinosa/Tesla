@@ -1,0 +1,35 @@
+<h1 class="title">Step 3: Summary</h1>
+<h3>Your Tesla {{model.description}}</h3>
+
+<ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: '', value: options.config.price }"/>
+
+<ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: color.description, value: color.price }"/>
+
+@if(options.towHitch) {
+  <ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: 'Tow Hitch Package', value: accessoriesPrice }"/>
+}
+
+@if(options.yoke) {
+  <ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: 'Yoke Steering Wheel', value: accessoriesPrice }"/>
+}
+
+<div class="total-price">
+  <ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: 'TOTAL COST', value: totalPrice, fade: true }"/>
+</div>
+
+<ng-template #accesory let-label="label" let-value="value" let-fade="fade">
+  <div class="row">
+    <div class="column" [ngClass]="{'fade-left': fade}">
+      @if (label) {
+        <b>{{label}}</b>
+      } @else {
+        <b>{{options.config.description}}</b>
+        <br/>
+        Range: {{options.config.range}} miles - Max speed {{options.config.speed}}
+      }
+    </div>
+    <div class="column" [ngClass]="{'fade-right': fade}">
+      {{value | currency }}
+    </div>
+  </div>
+</ng-template>
