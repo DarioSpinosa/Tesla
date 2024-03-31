@@ -26,15 +26,6 @@ export class CarStoreService {
     this.configSelected$.next(false);
   }
 
-  public unselectCar(): void {
-    this.selectedModel = null;
-    this.selectedColor = null;
-    this.selectedOptions = { config: null };
-    this.modelSelected$.next(false);
-    this.colorSelected$.next(false);
-    this.configSelected$.next(false);
-  }
-
   public selectColor(color: CarColor): void {
     this.selectedColor = color;
     this.colorSelected$.next(true);
@@ -43,5 +34,14 @@ export class CarStoreService {
   public selectConfig(config: CarConfig): void {
     this.selectedOptions.config = config;
     this.configSelected$.next(!!config);
+  }
+  
+  public unselectCar(): void {
+    this.selectedModel = null;
+    this.selectedColor = null;
+    this.selectedOptions = { config: null };
+    this.modelSelected$.next(false);
+    this.colorSelected$.next(false);
+    this.configSelected$.next(false);
   }
 }

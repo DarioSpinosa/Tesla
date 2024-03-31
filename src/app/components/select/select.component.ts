@@ -28,7 +28,6 @@ export class SelectComponent<T, K extends keyof T> {
   
   @Output() public readonly valueChange: EventEmitter<T[K]> = new EventEmitter<T[K]>();
   
-
   protected onChange(): void {
     this.valueChange.emit(this.value);
   }

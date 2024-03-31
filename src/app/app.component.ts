@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit, WritableSignal, inject, signal } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { Router, RouterOutlet } from '@angular/router';
 import { CarSelectionComponent } from './components/car-selection/car-selection.component';
 import { CarStoreService } from './service/car-store.service';
-import { FormsModule } from '@angular/forms';
 
 type Tab = {
   enabled: boolean
