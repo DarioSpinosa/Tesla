@@ -3,7 +3,7 @@
 
 <ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: '', value: options.config.price }"/>
 
-<ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: color.description, value: color.price }"/>
+<ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: color.description + ' Color', value: color.price }"/>
 
 @if(options.towHitch) {
   <ng-container [ngTemplateOutlet]="accesory" [ngTemplateOutletContext]="{ label: 'Tow Hitch Package', value: accessoriesPrice }"/>
